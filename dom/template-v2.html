@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <p>{{Titulo}}</p>
+    <p>{{Saudacao()}}</p>
+</div>
+
+<!-- Tudo aquilo que foi atributo ou tudo aquilo que for retornado a partir de função, sendo interpretado dentro do padrão DoubleMoustache, significa que tem que ser retornado por string já que o html é um padrão textual.
+
+Não significa que ele não va conseguir transformar um numero por exemplo para string, mas tem que ser passivel de ser transformado em string -->
+
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            Titulo: "Praticando VueJS!"
+        },
+        methods:{
+            Saudacao: function(){
+                return "Boa Semana!"
+            }
+        // Adicionando uma outra propriedade Methods
+        // Podendo ser escrito desses dois modos:
+        // 1 - Ja passando o metodo direto saudacao()
+        // 2 - Saudacao: function() (sendo uma funcao anonima)
+        }
+    })
+</script>

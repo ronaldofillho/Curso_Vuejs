@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<!-- O que são diretivas?
+São propriedades personalizadas que são interpretadas pelo vue, podendo ser criadas suas proprias diretivas ou usar as que o vue disponibiliza -->
+<div id="app">
+    <p>{{Titulo}}</p>
+    <p>{{Saudacao()}}</p>
+    <a v-bind:href="link">Google</a>
+</div>
+<!-- 1 - O conteudo da tag P (paragrafo) é um valor textual que vai usar o padrão DoubleMoustache para ser interpretado
+2- Em casos de Propriedades dentro das tags do HTML terá que utilizar as diretivas
+3- Este é um exemplo de resolver o problema utilizando o v-bind
+4- O v-Bind irá fazer uma ligação entre um dado que está na Vue Instance e um atributo que está na propriedade da tag -->
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            Titulo: "Usando VueJS!",
+            link: "http://www.google.com.br"
+        },
+        methods:{
+            Saudacao:function(){
+                console.log(this)
+                return this.Titulo
+            }
+        }
+    })
+</script>

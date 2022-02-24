@@ -1,14 +1,20 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
+<!-- Div criada para executar o HTML -->
 <div id="app">
-    <p>{{ Titulo }}</p>
+    <p>{{Titulo}}</p>
 </div>
 
+<!-- Criando uma instancia o Vue, através da importação do aquivo JS-Vue -->
 <script>
+    // new é a função construtora para o Vuejs
     new Vue({
-        el: "#app",
+        // Passando um parametro um objeto utilizando varios atributos
+        el: "#app", 
+        // Elemento - Trecho de HTML voce quer controlar
         data:{
             Titulo: "Utilizando Vue.js 2!"
+        // Data será um objeto que será utilizado dentro do HTML controlado pelo Vue  
         }
     })
 </script>

@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <p v-once>{{Titulo}}</p>
+    <p>{{Saudacao()}}</p>
+    <a v-bind:href="link">Google</a>
+</div>
+<!-- O v-once é uma boa estrategia é interessante quando de fato precisa ser atualizado uma unica vez, consumiundo menos recurso. -->
+<!-- A instancia do VueJS tem o template todo em memoria e sempre que há uma mudança ele gera um novo template efetuando a mudança apenas no que for necessario -->
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            Titulo: "Praticando VueJs!",
+            link: "https://www.google.com.br"
+        },
+        methods:{
+            Saudacao: function(){
+                this.Titulo = "Bom dia!!!"
+                return this.Titulo
+            // Sempre que há uma mudança no valor na instancia a Vue é automaticamente atualizada  
+            }
+        }
+    })
+</script>

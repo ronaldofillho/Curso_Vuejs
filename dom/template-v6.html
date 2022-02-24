@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <p v-once>{{Titulo}}</p>
+    <p>{{Saudacao()}}</p>
+    <a v-bind:href="link">Google</a>
+    <hr>
+    <p v-html="linkHtml"></p>
+    <!-- Utilizando a diretive v-html serve para interpretar uma HTML formatado em texto a partir do atributo que lhe foi atribuido -->
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            Titulo: "Praticando VueJS!",
+            link: "https://www.google.com.br",
+            linkHtml: "<a href='https://google.com.br'>Google</a>"
+        },
+        methods:{
+            Saudacao(){
+                this.Titulo = "Bom dia!!!"
+                return this.Titulo
+            }
+
+        }
+    })
+</script>

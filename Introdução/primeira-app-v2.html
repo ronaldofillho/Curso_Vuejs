@@ -2,6 +2,8 @@
 
 <div id="app">
     <input type="text" v-on:input="alterarTitulo">
+    <!-- Utilizando o conceito DIRETIVO, que nada mais é que uma propriedade personalizada do HTML -->
+    <!-- Ele trata elementos do tipo input, fazendo a chamada do metodo ou função "ALTERARTITULO" -->
     <p>{{ Titulo }}</p>
 </div>
 
@@ -15,6 +17,9 @@
             alterarTitulo(event){
                 this.Titulo=event.target.value
             }
+            // Criando evento para interagir quando houver interação no HTML, a partir do momento em que voce digita  algo no input
+            // Para acessar dentro da instancia do Vue, usa-se o "THIS"
+            // event.target.value é a função que vai pegar o valor do elemento que gerou o evento e setando em titulo 
         }
     })
 </script>

@@ -1,0 +1,16 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<!-- Utilizando DoubleMoustache para referenciar o atributo Titulo-->
+<div id="app">
+    <p>{{Titulo}}</p> 
+</div>
+
+<!-- Este trecho do vue controla esta primeira parte do HTML (template) -->
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            Titulo: "Usando VueJs!"
+        }
+    })
+</script>

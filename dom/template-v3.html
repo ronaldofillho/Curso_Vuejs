@@ -1,0 +1,31 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <p>{{Titulo}}</p>
+    <p>{{Saudacao()}}</p>
+</div>
+
+<script>
+    // Através do Vue não poderá ter funcoes,atributos ou dados com o mesmo nome!
+    // Por motivos de que todos esses dados são jogados diretamente dentro da instancia do Vue"
+    // Diferente se seguisse o data.titulo ou methods.titulo
+
+    new Vue({
+        el: "#app",
+        data:{
+            Titulo: "Utilizando VueJS!"
+        },
+        methods:{
+            Saudacao: function(){
+                console.log(this)
+            // Console.log é a forma de imprimir em JS
+            // Neste contexto o THIS representa a instancia do Vue. 
+            // Utilizando o console veremos que saudacao é uma funcão diretamente dentro da instancia do Vue
+                return this.Titulo
+            }
+            // Utilizando do return para retornar o conteudo armazenado em Titulo que está localizado em DATA
+            // Como ja visto anteriormente para acessar o Titulo dentro do teamplate de forma direta utiliza-se o "THIS
+            // Desta forma consegue acessar o Titulo através de sua propria chamada, assim como através da chamada na funcão "SAUDACAO".
+        }
+    })
+</script>
