@@ -1,7 +1,7 @@
 new Vue({
     el: "#desafio",
     data:{
-        Nome: "Ronaldo", Idade: 30, imagem: "http://files.cod3r.com.br/curso-vue/vue.jpg" 
+        Nome: "Begão", Idade: 30, imagem: "http://files.cod3r.com.br/curso-vue/vue.jpg" 
     },
     methods:{
         multiplicador(){
@@ -10,5 +10,8 @@ new Vue({
         random(){
             return Math.random()  
         },
+        alterarInput(event){
+            this.Nome=event.target.value
+        }
     }
 })
