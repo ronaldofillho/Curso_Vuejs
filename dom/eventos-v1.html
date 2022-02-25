@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <p>{{Contador}}</p>
+    <button v-on:click="somar">Soma 1</button>
+    <!-- Esta diretiva (V-ON) intercepta um evento (Click, Mouse Move etc), e nesse caso eu vou chamar a função sendo atribuida a diretiva -->
+    <!-- Em caso de Utilizar o (V-ONCE), como ja visto anteriormente, o evento não iria ser atualizado. -->
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            Contador: 0
+        },
+        methods:{
+            somar(){
+                this.Contador++
+                // Passando o This para que possa ter acesso direto ao contador, fazemos uma função para que o contador possa ser incrementado
+            }
+        }
+    })
+</script>

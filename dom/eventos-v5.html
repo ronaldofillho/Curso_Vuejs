@@ -1,0 +1,46 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <p>{{Contador}}</p>
+    <button v-on:click="soma(5, $event)">Somar</button>
+    <p v-on:mousemove="AtualizarXY">Mouse: {{x}} e {{y}}
+        <span v-on:mousemove="pararcaptura">PARAR AQUI!!!</span>
+        <p></p>
+        <a v-on:click="naoNavegar" href="http://Google.com.br">Google</a>
+    </p>
+    <hr>
+    <input type="text" v-on:keyup.enter="exibirAlerta">
+    <!-- Outro modificar para eventos para serem utilizados no TECLADO:
+        
+    se chama keyup e a sinxtaxe está no input acima: -->
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            Contador: 0,
+            x:0,
+            y:0
+        },
+        methods:{
+            soma(passo,even){
+                console.log(passo,even)
+                this.Contador +=passo
+            },
+            AtualizarXY(event){
+                this.x=event.clientX
+                this.y=event.clientY
+            },
+            pararcaptura(event){
+                event.stopPropagation()
+            },
+            naoNavegar(){
+                event.preventDefault()
+            },
+            exibirAlerta(){
+                alert("Alerta: Voce está certo disso?")
+            }
+        }
+    })
+</script>

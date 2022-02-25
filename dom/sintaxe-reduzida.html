@@ -1,0 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <p>{{contador}}</p>
+    <button @click="Incremento">Somar 1</button><p></p>
+    <input type="text" :value="contador">
+</div>
+<!-- Simplificando o V-ON e V-BIND
+
+V-on == @
+v-Bind == : -->
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            contador: 0
+        },
+        methods:{
+            Incremento(){
+                this.contador++
+            }
+        }
+    })
+</script>

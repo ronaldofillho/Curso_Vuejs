@@ -1,0 +1,20 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <p>{{Titulo}}</p>
+    <input type="text" v-model:value="Titulo">
+</div>
+<!-- Existe uma forma de bind de duas direcoes que chamamos de Two-Way-Binding
+1 - V-bind - Aqui ele faz uma unica direcao, onde acontece da direcao do javascript para o HTML;
+2- V-on - Um Evento que aconteceu no HTML e pode fazer algo para alterar na instancia do Vue(JS)
+3 - V-Model - Utiliza as duas direções de forma direta -->
+
+<!-- OBS: No começo do curso onde utilizei uma função onde alterava-se o obejto Titulo atraves do event.target.value, posso utilizar o v-model para fazer isso de forma automatica. -->
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            Titulo: "Usando VueJs!"
+        },
+    })
+</script>

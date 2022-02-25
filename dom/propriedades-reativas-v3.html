@@ -1,0 +1,45 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <button v-on:click="aumentar">Aumentar</button>
+    <button v-on:click="Contador2++">Aumentar 2</button>
+    <button v-on:click="diminuir">Diminuir</button>
+    <p>Contador: {{contador}} | {{Contador2}}</p>
+    <p>Resultado: {{resultado}}</p>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            contador: 0,
+            Contador2: 0,
+        },
+        computed: {
+            resultado() {
+                console.log("Metodo está sendo chamado")
+                return this.contador >= 5 ?
+                    "Maior ou Igual a 5" : "Menor que 5"
+            },
+        },
+        watch: {
+            contador(novo, velho) {
+                setTimeout(() => {
+                    this.contador = 0
+                }, 5000)
+            }
+        },
+        //     Propriedades computadas são SINCRONAS, elas precisam de um retorno imediato.
+        // DE NOVO, elas nao podem ter dados e funcoes de mesmo nome.
+
+        // EXCEÇÃO: A PROPRIEDADE WATCH é o oposto disso, o nome necessariamente precisa ser igual para poder fazer o monitoramento.
+        methods: {
+            aumentar() {
+                this.contador++
+            },
+            diminuir() {
+                this.contador--
+            },
+        }
+    })
+</script>

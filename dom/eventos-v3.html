@@ -1,0 +1,33 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <p>{{Contador}}</p>
+    <button v-on:click="soma(5, $event)">Somar</button>
+    <p v-on:mousemove="AtualizarXY">Mouse: {{x}} e {{y}}</p>
+    <!-- Voce tambem pode passar seu proprios parametros e não apenas o que é gerado por padrao
+    Para voce mostrar o seu valor de escolha no parametro MAIS o valor padrão deverá utilizar o formato reservado do evento da seguinte maneira "$event" -->
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            Contador: 0,
+            x:0,
+            y:0
+        },
+        methods:{
+            soma(passo,even){
+                console.log(passo,even)
+            // Mostrando que pode-se escolher no parametro da função qualquer nome para event, mas a chamada do mesmo apenas com o %event
+            // Mostrando que ao passar os paramentros ao imprimir, mostra-se o valor de sua escolha e o valor padrão do evento
+                this.Contador +=passo
+            // Através deste incremento aditivo, consegue incrementar de 5 em 5 
+            },
+            AtualizarXY(event){
+                this.x=event.clientX,
+                this.y=event.clientY
+            },
+        }
+    })
+</script>

@@ -1,0 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <p>{{Contador}}</p>
+    <p>{{Contador <= 10 ? "Este número está dentro do permitido" : "Este numero está fora do permitido"}}</p>
+    <button v-on:click="soma(5, $event)">Somar</button>
+    <!-- A interpolação ou o uso do DoubleMustache pode ser utilizada com operadores ternarios, valores em variaveis etc,
+    O que não se pode usar dentro deles são condicoes,testes,laços: como if,else,elif, for, while etc. -->
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            Contador: 0,
+           },
+        methods:{
+            soma(passo,even){
+                console.log(passo,even)
+                this.Contador ++
+            },
+        }
+    })
+</script>

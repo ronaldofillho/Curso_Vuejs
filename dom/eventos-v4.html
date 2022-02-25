@@ -1,0 +1,58 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <p>{{Contador}}</p>
+    <button v-on:click="soma(5, $event)">Somar</button>
+    <p v-on:mousemove="AtualizarXY">Mouse: {{x}} e {{y}}
+        <span v-on:mousemove="pararcaptura">PARAR AQUI!!!</span>
+        <p></p>
+        <a v-on:click="naoNavegar" href="http://Google.com.br">Google</a>
+        <!-- O span é uma tag do HTML muito parecida com a div, so que no lugar dela funcionar em bloco, ela funciona em linha -->
+        
+        <!-- Nessa Aula vimos que existem duas formas de modificar eventos:
+        O .stop serve para parar um evento em um determinado momento
+        O .prevent serve para prevenir que um evento não seja executado
+        Ambos podem ser chamados em uma unica chamada da função
+
+        Utilizando esses modificadores podemos não necessitar de criar funções para executar essas necessidades:
+
+        Sintaxe Exemplo para utilizar o .stop e .prevent -->
+        
+        <!-- 
+        <span v-on:mousemove.stop="">PARAR AQUI!!!</span>
+        
+        <a v-on:click.prevent="nãoNavegar"href="http://Google.com.br">Google</a> 
+    
+        -->
+
+    </p>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            Contador: 0,
+            x:0,
+            y:0
+        },
+        methods:{
+            soma(passo,even){
+                console.log(passo,even)
+                this.Contador +=passo
+            
+            },
+            AtualizarXY(event){
+                this.x=event.clientX
+                this.y=event.clientY
+            },
+            pararcaptura(event){
+                event.stopPropagation()
+            // o metodo stopPropagation ele é explicitamente parar a propagacao
+            },
+            naoNavegar(){
+                event.preventDefault()
+            },
+        }
+    })
+</script>

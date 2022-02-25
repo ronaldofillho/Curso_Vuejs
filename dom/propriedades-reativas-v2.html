@@ -1,0 +1,43 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <button v-on:click="aumentar">Aumentar</button>
+    <button v-on:click="Contador2++">Aumentar 2</button>
+    <button v-on:click="diminuir">Diminuir</button>
+    <p>Contador: {{Contador}} | {{Contador2}}</p>
+    <p>Resultado: {{resultado}}</p>
+</div>
+
+<!-- Como ja visto anteriormente não pode haver igualdade de nomes entre dados e metodos, então onde havia o objeto resultado em data, foi transformado em metodo. -->
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            Contador: 0,
+            Contador2: 0,
+        },
+        computed:{
+            resultado(){
+                console.log("Metodo Resultado Chamado")
+                return this.Contador >=5 ? "Maior ou Igual a 5" : "Menor que 5"
+            },
+        },
+        // Quando voce utiliza uma propriedade computada, o JS vai identificar que voce terá apenas o resultado desejado. Como assim?
+        
+        // Neste exemplo da aula 33 e ao observar o codigo, temos um metodo que está comentado resultado(), onde se ele tiver ativo no lugar do computed ele iria ser chamado em ambos os contadores, mesmo ela retornando APENAS o objeto contador.
+
+        // Utilizando O COMPUTED como estamos nesse momento, garantimos que apenas o contador chamado execute o calculo fazendo apenas um chamado e não gastando recurso com um objeto que é desnecessario para o calculo.
+        methods:{
+            aumentar(){
+                this.Contador++
+            },
+            diminuir(){
+                this.Contador--
+            },
+            // resultado(){
+            //     console.log("Metodo Resultado Chamado")
+            //     return this.Contador >=5 ? "Maior ou Igual a 5" : "Menor que 5"
+            // }
+        }
+    })
+</script>

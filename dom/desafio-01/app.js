@@ -1,7 +1,7 @@
 new Vue({
     el: "#desafio",
     data:{
-        Nome: "Begão", Idade: 30, imagem: "http://files.cod3r.com.br/curso-vue/vue.jpg" 
+        Nome: "Ronaldo", Idade: 30, imagem: "http://files.cod3r.com.br/curso-vue/vue.jpg" 
     },
     methods:{
         multiplicador(){

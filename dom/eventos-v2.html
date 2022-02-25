@@ -1,0 +1,33 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<div id="app">
+    <p>{{Contador}}</p>
+    <button v-on:click="soma">Somar</button>
+    <p v-on:mousemove="AtualizarXY">Mouse: {{x}} e {{y}}</p>
+    <!-- Novamente, utilizando o V-ON para caputurar um evento de MOUSEMOVE;
+    Mesmo que voce não passe o evento na chmada da função, é passado por PADRÃO o evento solicitado. -->
+    <!-- Em JS mesmo que voce não defina um parametro e chame uma funcao passando parametro não tem problema.
+    Se voce tiver Tres parametros e apenas passar dois, o JS irá aceitar. -->
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            Contador: 0,
+            x:0,
+            y:0
+        },
+        methods:{
+            soma(){
+                this.Contador++
+            },
+            AtualizarXY(event){
+                this.x=event.clientX,
+                this.y=event.clientY
+            // Utilizando de conceitos POO, para utilizar o evento, passando o objeto antes da chamada do ClientXY
+
+            },
+        }
+    })
+</script>
